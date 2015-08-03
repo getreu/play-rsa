@@ -1,0 +1,23 @@
+[package]
+name = "rust-playrsa"
+version = "0.3.0"
+authors = ["Jens Getreu <getreu@web.de>"]
+license = "MIT"
+homepage = "https://github.com/getreu/rust-play-rsa/"
+repository = "https://github.com/getreu/rust-play-rsa/"
+description = "Implementation of RSA primitives for pedagogical purposes."
+keywords = [ "Crypto", "RSA", "primes", "gcd", "invert" ]
+readme = "README.adoc"
+
+[lib]
+name = "libplayrsa"
+
+[[bin]]
+name = "playrsa"
+path = "src/examples/main.rs"
+
+[dependencies]
+num = "0.1.25"
+rustc-serialize = "0.3.15"
+rand = "0.3.8" 
+primal = "0.2.3"
