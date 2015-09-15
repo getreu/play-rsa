@@ -1,4 +1,4 @@
-= rust-play-rsa
+= rustlang-play-rsa
 Jens Getreu
 v1.0, 31.7.2015
 :authorinitials: JG
@@ -8,7 +8,7 @@ v1.0, 31.7.2015
 :toc!:
 :pagenums:
 
-`rust-play-rsa` is an implementation of RSA cryptography
+`rustlang-play-rsa` is an implementation of RSA cryptography
  in Rust footnote:[Rust version 1.1]. 
 
 The algorithms are implemented as described on wikipedia. Please find
@@ -41,7 +41,7 @@ seems to be the limit for the chosen algorithms and hardware.
 .Sample output for a key length of 256 bit
 ....  
 $ cargo run --release 
-   Compiling rustplay-rsa v0.3.0 (file:///.../rust-play-rsa)
+   Compiling rustplay-rsa v0.3.0 (file:///.../rustlang-play-rsa)
      Running `target/release/play-rsa`
 
 FINDING BIG PRIME NUMBERS
@@ -71,7 +71,7 @@ Decrypted ciphertext: 'Coming tomorrow!'
 .Output
 ....
 $ cargo test --release -- --nocapture
-   Compiling rust-playrsa v0.3.0 (file:///.../rust-play-rsa)
+   Compiling rustlang-play-rsa v0.3.0 (file:///.../rustlang-play-rsa)
      Running target/release/libplayrsa-560318058ffc81cd
 
 running 12 tests
