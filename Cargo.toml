@@ -1,14 +1,15 @@
 [package]
-name = "playrsa"
-version = "0.3.0"
+name = "play-rsa"
+version = "0.4.0"
 authors = ["Jens Getreu <getreu@web.de>"]
+edition = "2018"
+readme = "README.md"
+description = "implementation of RSA cryptography in Rust for pedagogical use"
 license = "MIT"
 homepage = "https://github.com/getreu/play-rsa/"
 repository = "https://github.com/getreu/play-rsa/"
-description = "Implementation of RSA primitives for pedagogical purposes."
-keywords = [ "Crypto", "RSA", "primes", "gcd", "invert" ]
-readme = "README.adoc"
-edition = "2018"
+categories = [ "Cryptography", "Algorithms", "Mathematics" ]
+keywords = [ "RSA", "primes", "gcd", "invert" ]
 
 [lib]
 name = "libplayrsa"
