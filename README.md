@@ -11,6 +11,13 @@ lang:     en-GB
 
 _Play-RSA_ is an implementation of RSA cryptography in Rust [^1].
 
+[![Cargo](https://img.shields.io/crates/v/play-rsa.svg)](
+https://crates.io/crates/play-rsa)
+[![Documentation](https://docs.rs/play-rsa/badge.svg)](
+https://docs.rs/play-rsa)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](
+https://github.com/getreu/play-rsa)
+
 The algorithms are implemented as described on Wikipedia.[^2] Please find
 concrete links and pseudocode samples in the source code. 
 
