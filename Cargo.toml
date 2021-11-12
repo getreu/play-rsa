@@ -1,10 +1,10 @@
 [package]
 name = "play-rsa"
-version = "0.4.0"
+version = "0.4.1"
 authors = ["Jens Getreu <getreu@web.de>"]
-edition = "2018"
+edition = "2021"
 readme = "README.md"
-description = "implementation of RSA cryptography in Rust for pedagogical use"
+description = "Implementation of RSA cryptography in Rust for pedagogical use"
 license = "MIT"
 homepage = "https://github.com/getreu/play-rsa/"
 repository = "https://github.com/getreu/play-rsa/"
