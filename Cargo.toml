@@ -8,7 +8,7 @@ description = "Implementation of RSA cryptography in Rust for pedagogical use"
 license = "MIT"
 homepage = "https://github.com/getreu/play-rsa/"
 repository = "https://github.com/getreu/play-rsa/"
-categories = [ "Cryptography", "Algorithms", "Mathematics" ]
+categories = [ "cryptography", "algorithms", "mathematics" ]
 keywords = [ "RSA", "primes", "gcd", "invert" ]
 
 [lib]
