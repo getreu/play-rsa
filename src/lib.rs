@@ -1,3 +1,5 @@
+#![allow(clippy::many_single_char_names)]
+
 extern crate num;
 extern crate rand;
 extern crate rustc_serialize;

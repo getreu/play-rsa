@@ -1,3 +1,5 @@
+#![allow(clippy::many_single_char_names)]
+
 extern crate num;
 extern crate num_bigint as bigint;
 extern crate primal;
@@ -29,7 +31,7 @@ pub fn mod_exp(base: &BigUint, exponent: &BigUint, modulus: &BigUint) -> BigUint
         b = &b % modulus;
 
         // Get next bit of exponent
-        exp = exp >> 1;
+        exp >>= 1;
     }
     result
 }
@@ -42,8 +44,8 @@ fn rewrite(n: &BigUint) -> (BigUint, BigUint) {
     let two = 2.to_biguint().unwrap();
 
     while d.is_even() {
-        d = d / &two;
-        s = s + &one;
+        d /= &two;
+        s += &one;
     }
     (s, d)
 }
@@ -68,8 +70,8 @@ fn rewrite(n: &BigUint) -> (BigUint, BigUint) {
 ///           if x = 1 then return composite
 ///           if x = n − 1 then do next WitnessLoop
 ///       return composite
-///    return probably prime  
-///'''  
+///    return probably prime
+///'''
 
 fn rabin_miller(candidate: &BigUint) -> bool {
     // Rabin-Miller until probability of false-positive is < 2^-128
@@ -113,7 +115,7 @@ fn rabin_miller(candidate: &BigUint) -> bool {
             } else if x == one {
                 return false;
             }
-            s = s - &one;
+            s -= &one;
         }
         return false;
     }
@@ -224,8 +226,8 @@ pub fn extended_gcd(a: &BigUint, b: &BigUint) -> (BigInt, BigInt, BigInt) {
 ///
 ///'''text
 /// function inverse(a, n)
-///     t := 0;     newt := 1;    
-///     r := n;     newr := a;    
+///     t := 0;     newt := 1;
+///     r := n;     newr := a;
 ///     while newr ≠ 0
 ///         quotient := r div newr
 ///         (t, newt) := (newt, t - quotient * newt)
