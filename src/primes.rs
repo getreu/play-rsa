@@ -103,22 +103,27 @@ fn rabin_miller(candidate: &BigUint) -> bool {
         let mut x = mod_exp(&basis, &d, candidate);
 
         if x == one || x == (candidate - &one) {
-            break 'witness_loop;
+            continue 'witness_loop;
         }
 
         while s > one {
             // loop s-1 times
 
             x = (&x * &x) % candidate;
-            if x == candidate - &one {
-                break 'witness_loop;
-            } else if x == one {
+            if x == one {
+                // Composite.
                 return false;
+            }
+
+            if x == candidate - &one {
+                continue 'witness_loop;
             }
             s -= &one;
         }
+        // Composite.
         return false;
     }
+    // Probably prime.
     true
 }
 
@@ -306,6 +311,10 @@ mod test_primes {
         // Trivial composites
         assert!(!is_prime(&27.to_biguint().unwrap()));
         assert!(!is_prime(&1000.to_biguint().unwrap()));
+        // https://docs.rs/miller_rabin/1.0.6/src/miller_rabin/lib.rs.html#105-133
+        assert!(!is_prime(
+            &BigUint::from_str("170141183460469231731687303715884105725").unwrap()
+        ));
 
         // Big composite
         let known_composite_str = "5998532537771751919223292779480088814208363735733315189796\
@@ -326,12 +335,20 @@ mod test_primes {
         // Big primes
         assert!(is_prime(&15486869.to_biguint().unwrap()));
         assert!(is_prime(&179425357.to_biguint().unwrap()));
-        let known_prime_str = "1185953636795374682612582767575507043186511556015932992921\
-      98496313960907653004730006758459999825003212944725610469590\
-      67402012450624977056639426083223780925249450568325586119944\
-      94823851964743424816413015031211427409331862791112093760615\
-      35491003888763334916103110474472949854230628809878558752830\
-      476310536476569";
+        // https://docs.rs/miller_rabin/1.0.6/src/miller_rabin/lib.rs.html#105-133
+        assert!(is_prime(
+            &BigUint::from_str("170141183460469231731687303715884105727").unwrap()
+        ));
+        // https://docs.rs/miller_rabin/1.0.6/src/miller_rabin/lib.rs.html#105-133
+        assert!(is_prime(
+            &BigUint::from_str("56713727820156410577229101238628035243").unwrap()
+        ));
+        // This is prime M_607
+        // https://en.wikipedia.org/wiki/Largest_known_prime_number
+        let known_prime_str = "53113799281676709868958820655246862732959311772\
+            703192319944413820040355986085224273916250226522928566888932948624\
+            650101534657933765270723940951997876658735194383127083539321903172\
+            8127";
         let known_prime: BigUint = FromStr::from_str(known_prime_str).unwrap();
         assert!(is_prime(&known_prime));
     }
